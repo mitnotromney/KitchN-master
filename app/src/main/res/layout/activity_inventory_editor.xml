@@ -14,8 +14,7 @@
             android:layout_marginLeft="20dp"
             android:text="Overview"
             android:layout_marginTop="40dp"/>
-
-        <!-- Input fields -->
+        
         <LinearLayout
             android:layout_height="wrap_content"
             android:layout_width="0dp"
@@ -26,7 +25,6 @@
             android:layout_marginLeft="40dp"
             android:layout_marginTop="40dp">
 
-            <!-- Name field -->
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -34,7 +32,6 @@
                 android:hint="hint"
                 android:inputType="textCapWords"/>
 
-            <!-- Breed field -->
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
