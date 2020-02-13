@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">KitchN</string>
+    <string name="ten_min_heading">10 Minute Meals</string>
+    <string name="twenty_min_heading">20 Minute Meals</string>
+    <string name="thirty_min_heading">30 Minute Meals</string>
+    <string name="menu_inventory">Inventory</string>
+    <string name="menu_recipes">Recipes</string>
+    <string name="menu_shopping_list">Shopping List</string>
+    <string name="menu_friends">Friends</string>
+    <string name="menu_settings">Settings</string>
+</resources>
