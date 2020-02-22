@@ -6,9 +6,11 @@ import android.content.Intent;
 import android.media.Image;
 import android.nfc.Tag;
 import android.support.annotation.NonNull;
+import android.support.design.shape.InterpolateOnScrollPositionChangeHelper;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,9 +21,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
+    private DrawerLayout dl;
+    private ActionBarDrawerToggle t;
+    private NavigationView nv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +36,34 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         TextView ten = findViewById(R.id.tenMinuteTextView);
         TextView twenty = findViewById(R.id.twentyMinuteTextView);
         TextView thirty = findViewById(R.id.thirtyMinuteTextView);
+        dl = (DrawerLayout)findViewById(R.id.drawer_layout);
+        t= new ActionBarDrawerToggle(this, dl, R.string.common_open_on_phone, R.string.app_name);
+
+        dl.addDrawerListener(t);
+        t.syncState();
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        nv = (NavigationView)findViewById(R.id.nav_view);
+        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.menu_inventory:
+                        Log.i("I'm being pressed", menuItem.toString());
+                        Intent inventoryIntent = new Intent(MainActivity.this, InventoryActivity.class);
+                        startActivity(inventoryIntent);
+                        return true;
+                    case R.id.menu_recipes:
+                        Intent recipesIntent = new Intent(MainActivity.this, InventoryActivity.class);
+                        startActivity(recipesIntent);
+                        break;
+                    default:
+                        return true;
+                }
+                return true;
+            }
+        });
 
 
         ten.setOnClickListener(new View.OnClickListener() {
@@ -56,23 +89,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(thirtyIntent);
             }
         });
+
+
     }
 
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        Log.i(TAG, "onNavigationItemSelected: I'm being pressed");
-        switch (item.getItemId()) {
-            case R.id.menu_inventory:
-                startActivity(new Intent(this, InventoryActivity.class));
-                return true;
-            case R.id.menu_recipes:
-                Intent recipesIntent = new Intent(this, TenMinActivity.class);
-                this.startActivity(recipesIntent);
-                break;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-        return true;
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (t.onOptionsItemSelected(item))
+            return true;
+
+        return super.onOptionsItemSelected(item);
     }
 
 }

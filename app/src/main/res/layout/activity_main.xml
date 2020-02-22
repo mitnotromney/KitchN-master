@@ -24,51 +24,72 @@
             android:layout_height="50dp"
             android:background="#1A1719"/>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <View
+            <LinearLayout
+                android:id="@+id/ten_minute_wrap"
                 android:layout_width="match_parent"
-                android:layout_height="3dp"
-                android:background="#6B2F03"/>
+                android:layout_height="wrap_content"
+                android:background="@drawable/layout_bg"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_above="@+id/twenty_minute_wrap">
 
-            <TextView
-                android:id="@+id/tenMinuteTextView"
+                <TextView
+                    android:id="@+id/tenMinuteTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="@string/ten_min_heading"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/twenty_minute_wrap"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:background="#69828C"
-                android:text="@string/ten_min_heading"
-                android:layout_weight="1"/>
+                android:layout_height="wrap_content"
+                android:background="@drawable/layout_bg"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_above="@+id/thirty_minute_wrap"
+                android:layout_marginBottom="20dp">
 
-            <View
+                <TextView
+                    android:id="@+id/twentyMinuteTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="@string/twenty_min_heading"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/thirty_minute_wrap"
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="#6B2F03"/>
+                android:layout_height="wrap_content"
+                android:background="@drawable/layout_bg"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_alignParentBottom="true">
 
-            <TextView
-                android:id="@+id/twentyMinuteTextView"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:background="#69828C"
-                android:text="@string/twenty_min_heading"
-                android:layout_weight="1"/>
+                <TextView
+                    android:id="@+id/thirtyMinuteTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="@string/thirty_min_heading"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"/>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="#6B2F03"/>
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/thirtyMinuteTextView"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:background="#69828C"
-                android:text="@string/thirty_min_heading"
-                android:layout_weight="1"/>
-
-        </LinearLayout>
+        </RelativeLayout>
 
     </LinearLayout>
 
